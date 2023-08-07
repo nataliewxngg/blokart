@@ -1,13 +1,7 @@
-// typing animation
-let i = 0;
-let title = "BLOKART";
+// link hover and click
+const links = document.querySelectorAll("a");
 
-function typing() {
-    if (i < title.length) {
-        document.querySelector("#title").innerHTML += title.charAt(i);
-        i++;
-        setTimeout(typing, 120);
-    }
-}
-
-typing(title);
+links.forEach((link) => {
+    link.onmouseenter = () => link.style.color = "#6c757d";
+    link.onmouseleave = () => link.style.color = "#212529";
+})
