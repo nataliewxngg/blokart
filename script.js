@@ -1,8 +1,12 @@
-let mouseDown = false;
+// variables
+const DEFAULT_COLOR = "#212529";
 
-// grid function
+let mouseDown = false;
+let wh = 16;
+
 const container = document.querySelector("#grid-container");
 
+// grid function
 function makeGrid(wAndH) {
     container.style.setProperty("--grid-rows", wAndH);
     container.style.setProperty("--grid-cols", wAndH);
@@ -11,31 +15,16 @@ function makeGrid(wAndH) {
         for (let cols = 0; cols < wAndH; cols++) {
             let cell = document.createElement("div");
             container.appendChild(cell).className = "cell";
+
+            // event listener
+            cell.addEventListener("mouseover", () => {
+                cell.style.background = DEFAULT_COLOR;
+            })
         }
     }
 }
 
-makeGrid(16);
-
-const cells = document.querySelectorAll(".cell");
-
-cells.forEach((cell) => {
-    cell.onmousedown = () => {
-        mouseDown = true;
-    } 
-    while (mouseDown) {
-        cell.onmouseenter = () => cell.style.background = "#212529";
-    }
-    // fix here
-})
-
-// link hover and click
-const links = document.querySelectorAll("a");
-
-links.forEach((link) => {
-    link.onmouseenter = () => link.style.color = "#6c757d";
-    link.onmouseleave = () => link.style.color = "#212529";
-})
+makeGrid(wh);
 
 // grid size slider
 let slider = document.querySelector("#grid-size-slider")
@@ -43,8 +32,18 @@ let sliderValue = document.querySelector("#slider-value");
 
 sliderValue.innerHTML = slider.value + "x" + slider.value; 
 
-slider.oninput = () => {
+slider.oninput= () => {
     sliderValue.innerHTML = slider.value + "x" + slider.value;
+}
+slider.onchange = () => {
     container.innerHTML = ""; // clear previous grid
     makeGrid(slider.value);
 }
+
+// link hover and click
+const links = document.querySelectorAll("a");
+
+links.forEach((link) => {
+    link.onmouseenter = () => link.style.color = "#6c757d";
+    link.onmouseleave = () => link.style.color = DEFAULT_COLOR;
+})
