@@ -16,9 +16,14 @@ function makeGrid(wAndH) {
             let cell = document.createElement("div");
             container.appendChild(cell).className = "cell";
 
+            cell.onmousedown = () => mouseDown = true;
+            cell.onmouseup = () => mouseDown = false;
+
             // event listener
             cell.addEventListener("mouseover", () => {
-                cell.style.background = DEFAULT_COLOR;
+                if (mouseDown) {
+                    cell.style.background = DEFAULT_COLOR;
+                }
             })
         }
     }
