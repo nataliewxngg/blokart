@@ -1,3 +1,5 @@
+let mouseDown = false;
+
 // grid function
 const container = document.querySelector("#grid-container");
 
@@ -14,6 +16,18 @@ function makeGrid(wAndH) {
 }
 
 makeGrid(16);
+
+const cells = document.querySelectorAll(".cell");
+
+cells.forEach((cell) => {
+    cell.onmousedown = () => {
+        mouseDown = true;
+    } 
+    while (mouseDown) {
+        cell.onmouseenter = () => cell.style.background = "#212529";
+    }
+    // fix here
+})
 
 // link hover and click
 const links = document.querySelectorAll("a");
