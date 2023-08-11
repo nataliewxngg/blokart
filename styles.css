@@ -49,6 +49,18 @@ a {
     background: rgba(0, 0, 0, 0.3);
 }
 
+#tools h3 {
+    padding-bottom: 40px;
+}
+
+/* color picker */
+#color-picker {
+    width: 100px;
+    height: 50px;
+
+    margin-bottom: 20px;
+}
+
 /* grid size slider */
 #slider-value {
     font-size: 15px;

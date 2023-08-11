@@ -1,10 +1,11 @@
 // variables
 const DEFAULT_COLOR = "#212529";
 
-// let mouseDown = false;
+let color = "#212529";
 let wh = 16;
 
 const container = document.querySelector("#grid-container");
+const colorPicker = document.querySelector("#color-picker")
 
 // grid function
 function makeGrid(wAndH) {
@@ -22,7 +23,7 @@ function makeGrid(wAndH) {
             // event listener
             cell.addEventListener("mouseover", () => {
                 // if (mouseDown) {
-                    cell.style.background = DEFAULT_COLOR;
+                    cell.style.background = color;
                 // }
             })
         }
@@ -30,6 +31,11 @@ function makeGrid(wAndH) {
 }
 
 makeGrid(wh);
+
+// color input
+colorPicker.onchange = () => {
+    color = colorPicker.value;
+}
 
 // grid size slider
 let slider = document.querySelector("#grid-size-slider")
