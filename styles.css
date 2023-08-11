@@ -31,6 +31,8 @@ button {
     margin-bottom: 10px;
 
     width: 150px;
+
+    transition: all 0.4s;
 }
 
 /* header */
@@ -91,6 +93,7 @@ button {
 /* grid size slider */
 #slider-value {
     font-size: 15px;
+    color: white;
 }
 
 #grid-size-slider {
