@@ -4,8 +4,10 @@ const DEFAULT_COLOR = "#212529";
 let color = "#212529";
 let wh = 16;
 
+const buttons = document.querySelectorAll("button");
+
 const container = document.querySelector("#grid-container");
-const colorPicker = document.querySelector("#color-picker")
+const colorPicker = document.querySelector("#color-picker");
 
 // grid function
 function makeGrid(wAndH) {

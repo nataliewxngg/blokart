@@ -26,15 +26,32 @@
 
         <div id="main">
             <div id="tools">
-                <h3>Tools</h3>
+                <div id="top-tools">
+                    <h3>Tools</h3>
 
-                <!-- color picker -->
-                <input type="color" id="color-picker" value="#212529">
-                
-                <!-- range slider --> 
-                <p id="slider-value"></p>
-                <input type="range" min="1" max="100" value="16" id="grid-size-slider"> 
+                    <!-- color picker -->
+                    <input type="color" id="color-picker" value="#212529">
+                    
+                    <!-- toggle eraser -->
+                    <button id="toggle-eraser">Toggle Eraser</button>
+    
+                    <!-- toggle layering -->
+                    <button id="toggle-transparency">Toggle Trans-parency</button>
 
+                    <!-- toggle random color -->
+                    <button id="toggle-random-color">Toggle Random Color</button> 
+                    
+                    <!-- toggle grid lines -->
+                    <button id="toggle-grid-lines">Toggle Grid <br>Lines</button>
+                </div>
+                <div id="bottom-tools">
+                    <!-- range slider --> 
+                    <p id="slider-value"></p>
+                    <input type="range" min="1" max="100" value="16" id="grid-size-slider"> 
+
+                    <!-- clear button -->
+                    <button id="clear">Clear</button>
+                </div>
 
             </div>
 

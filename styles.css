@@ -6,8 +6,6 @@
 
     font-family: 'Press Start 2P', cursive;
     /* background: #dee2e6; */
-
-    text-shadow: 0 0 2px hsl(210, 11%, 15%);
 }
 
 body {
@@ -21,15 +19,32 @@ a {
     transition: all 0.4s;
 }
 
+button {
+    padding: 5px;
+    background: rgba(33, 37, 41, 0.2);
+    
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+
+    color: white;
+    margin-bottom: 10px;
+
+    width: 150px;
+}
+
 /* header */
 #title {
     padding-top: 30px;
     font-size: 60px;
+
+    text-shadow: 0 0 2px hsl(210, 11%, 15%);
 }
 
 #copyright {
     padding-bottom: 35px;
     font-size: 15px;
+    text-shadow: 0 0 2px hsl(210, 11%, 15%);
 }
 
 /* main */
@@ -47,18 +62,30 @@ a {
     padding: 20px;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #tools h3 {
     padding-bottom: 40px;
+    color: white;
 }
 
 /* color picker */
 #color-picker {
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 80px;
 
-    margin-bottom: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 10px;
+    border: 3px solid rgb(170, 170, 170);
+    box-shadow: 0 0 3px rgb(170, 170, 170);
+
+    margin-bottom: 10px;
 }
 
 /* grid size slider */
@@ -71,7 +98,7 @@ a {
     transition: all 0.4s;
     opacity: 0.8;
     stroke: none;
-    accent-color: #212529;
+    accent-color: white;
     margin-bottom: 10px;
 }
 
