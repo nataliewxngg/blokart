@@ -4,7 +4,6 @@ const DEFAULT_BUTTONBG = "rgba(33, 37, 41, 0.2)";
 const SELECTED_BUTTONBG = "rgba(33, 37, 41, 0.4)";
 
 let color = "#212529";
-let wh = 16;
 
 const links = document.querySelectorAll("a");
 const buttons = document.querySelectorAll("button");
@@ -47,7 +46,7 @@ function makeGrid(wAndH) {
     }
 }
 
-makeGrid(wh);
+makeGrid(16);
 
 // color input
 colorPicker.onchange = () => {
@@ -103,6 +102,20 @@ buttons.forEach((button) => {
 
                 e.target.style.background = SELECTED_BUTTONBG;
             }
+        }
+        else if (e.target.className == "toggle-grid-lines") {
+            gridLines = !gridLines;
+
+            if (gridLines) {
+                container.style.gridGap = "1px";
+                container.style.background = DEFAULT_COLOR;
+            } else {
+                container.style.gridGap = "0";
+            }
+        }
+        else if (e.target.className == "clear") {
+            container.innerHTML = "";
+            makeGrid(slider.value);
         }
 
         if (!eraser) eraserButton.style.background = DEFAULT_BUTTONBG;
