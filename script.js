@@ -1,7 +1,7 @@
 // variables
 const DEFAULT_COLOR = "#212529";
 
-let mouseDown = false;
+// let mouseDown = false;
 let wh = 16;
 
 const container = document.querySelector("#grid-container");
@@ -16,14 +16,14 @@ function makeGrid(wAndH) {
             let cell = document.createElement("div");
             container.appendChild(cell).className = "cell";
 
-            cell.onmousedown = () => mouseDown = true;
-            cell.onmouseup = () => mouseDown = false;
+            // cell.onmousedown = () => mouseDown = true;
+            // cell.onmouseup = () => mouseDown = false;
 
             // event listener
             cell.addEventListener("mouseover", () => {
-                if (mouseDown) {
+                // if (mouseDown) {
                     cell.style.background = DEFAULT_COLOR;
-                }
+                // }
             })
         }
     }
