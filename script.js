@@ -4,6 +4,10 @@ const DEFAULT_BUTTONBG = "rgba(33, 37, 41, 0.2)";
 const SELECTED_BUTTONBG = "rgba(33, 37, 41, 0.4)";
 
 let color = "#212529";
+let eraser = false;
+let transparency = false;
+let randomColor = false;
+let gridLines = true;
 
 const links = document.querySelectorAll("a");
 const buttons = document.querySelectorAll("button");
@@ -18,10 +22,7 @@ const eraserButton = document.querySelector(".toggle-eraser");
 const transparencyButton = document.querySelector(".toggle-transparency");
 const randomColorButton = document.querySelector(".toggle-random-color");
 
-let eraser = false;
-let transparency = false;
-let randomColor = false;
-let gridLines = true;
+// Functions
 
 // grid function
 function makeGrid(wAndH) {
@@ -48,9 +49,21 @@ function makeGrid(wAndH) {
 
 makeGrid(16);
 
+// reset booleans function
+function resetBooleans() {
+    eraser = false;
+    transparency = false;
+    randomColor = false;
+
+    eraserButton.style.background = DEFAULT_BUTTONBG;
+    transparencyButton.style.background = DEFAULT_BUTTONBG;
+    randomColorButton.style.background = DEFAULT_BUTTONBG;
+}
+
 // color input
 colorPicker.onchange = () => {
     color = colorPicker.value;
+    resetBooleans();
 }
 
 // grid size slider
@@ -83,6 +96,7 @@ buttons.forEach((button) => {
                 randomColor = false;
 
                 e.target.style.background = SELECTED_BUTTONBG;
+                color = "white";
             }
         }
         else if (e.target.className == "toggle-transparency") {
@@ -118,7 +132,10 @@ buttons.forEach((button) => {
             makeGrid(slider.value);
         }
 
-        if (!eraser) eraserButton.style.background = DEFAULT_BUTTONBG;
+        if (!eraser) {
+            eraserButton.style.background = DEFAULT_BUTTONBG;
+            color = colorPicker.value;
+        }
         if (!transparency) transparencyButton.style.background = DEFAULT_BUTTONBG;
         if (!randomColor) randomColorButton.style.background = DEFAULT_BUTTONBG;
 
