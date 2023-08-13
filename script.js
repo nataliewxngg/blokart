@@ -34,19 +34,13 @@ function makeGrid(wAndH) {
             let cell = document.createElement("div");
             container.appendChild(cell).className = "cell";
 
-            // cell.onmousedown = () => mouseDown = true;
-            // cell.onmouseup = () => mouseDown = false;
-
             // event listener
             cell.addEventListener("mouseover", () => {
-                // if (mouseDown) {
-                    cell.style.background = color;
-                // }
+                cell.style.background = color;
             })
         }
     }
 }
-
 makeGrid(16);
 
 // reset booleans function
@@ -60,9 +54,12 @@ function resetBooleans() {
     randomColorButton.style.background = DEFAULT_BUTTONBG;
 }
 
+// Tools (Event Listeners) 
+
 // color input
 colorPicker.onchange = () => {
     color = colorPicker.value;
+    console.log(color);
     resetBooleans();
 }
 
@@ -106,6 +103,11 @@ buttons.forEach((button) => {
                 randomColor = false;
 
                 e.target.style.background = SELECTED_BUTTONBG;
+
+                // color =
+                //     "rgba(" + parseInt(colorPicker.value.slice(1, 3), 16) + ", " +
+                //     parseInt(colorPicker.value.slice(3, 5), 16) + ", " +
+                //     parseInt(colorPicker.value.slice(5, 7), 16) + ", 0.1)";
             }
         } 
         else if (e.target.className == "toggle-random-color") {
