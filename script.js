@@ -54,6 +54,20 @@ function resetBooleans() {
     randomColorButton.style.background = DEFAULT_BUTTONBG;
 }
 
+// hex to rgba
+function hexToRGBA(hex) {
+    var c;
+    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+        c= hex.substring(1).split('');
+        if(c.length== 3){
+            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c= '0x'+c.join('');
+        return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',0.1)';
+    }
+    throw new Error('Bad Hex');
+}
+
 // Tools (Event Listeners) 
 
 // color input
@@ -104,10 +118,7 @@ buttons.forEach((button) => {
 
                 e.target.style.background = SELECTED_BUTTONBG;
 
-                // color =
-                //     "rgba(" + parseInt(colorPicker.value.slice(1, 3), 16) + ", " +
-                //     parseInt(colorPicker.value.slice(3, 5), 16) + ", " +
-                //     parseInt(colorPicker.value.slice(5, 7), 16) + ", 0.1)";
+                color = hexToRGBA(color);
             }
         } 
         else if (e.target.className == "toggle-random-color") {
