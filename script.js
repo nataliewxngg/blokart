@@ -58,7 +58,6 @@ function componentToHex(c) {
     let hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
-
 function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
@@ -94,7 +93,15 @@ slider.onchange = () => {
 
 // link hover and click
 links.forEach((link) => {
-    link.onmouseenter = () => link.style.color = "#6c757d";
+    link.addEventListener("mouseover", function(e) {
+        e.target.style.color = "#6c757d";
+        e.target.style.textDecoration = "underline";
+    })
+    link.addEventListener("mouseout", function (e) {
+        e.target.style.color = DEFAULT_COLOR;
+        e.target.style.textDecoration = "none";
+    })
+
     link.onmouseleave = () => link.style.color = DEFAULT_COLOR;
 })
 
