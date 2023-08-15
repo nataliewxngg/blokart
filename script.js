@@ -34,7 +34,10 @@ function makeGrid(wAndH) {
 
             // event listener
             cell.addEventListener("mouseover", () => {
-                    cell.style.background = color;
+                if (randomColor) {
+                    color = generateRandomColor();
+                }
+                cell.style.background = color;
             })
         }
     }
@@ -48,6 +51,25 @@ function resetBooleans() {
 
     eraserButton.style.background = DEFAULT_BUTTONBG;
     randomColorButton.style.background = DEFAULT_BUTTONBG;
+}
+
+// rgb to hex
+function componentToHex(c) {
+    let hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+// generate random color
+function generateRandomColor() {
+    let r = Math.floor((Math.random() * 255) + 1);
+    let g = Math.floor((Math.random() * 255) + 1);
+    let b = Math.floor((Math.random() * 255) + 1);
+
+    return rgbToHex(r, g, b);
 }
 
 // Tools (Event Listeners) 
